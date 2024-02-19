@@ -1,10 +1,10 @@
-FROM quay.io/fedora/fedora-coreos:stable
+FROM quay.io/fedora/fedora-coreos:testing
 
 COPY rhcontainerbot-podman-next-fedora.repo /etc/yum.repos.d/
 COPY rhcontainerbot-podman-next-fedora.gpg /etc/pki/rpm-gpg/
 
 # Replace aardvark-dns, conmon, crun, netavark, podman, containers-common
-# Remove moby-engine, containerd, runc
+# Remove moby-engine, containerd, runc, zincati ?
 # Note: Currently does not result in a size reduction for the container image
 
 RUN rpm-ostree override replace --experimental --freeze \
